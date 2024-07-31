@@ -1,15 +1,35 @@
 import streamlit as st
 from langflow.load import run_flow_from_json
+import os
 
 st.title("Langflow Chatbot")
+OPENAI_API_KEY = "" #enter your API Key Here
+
+TWEAKS = {
+  "ChatInput-Iy5jG": {},
+  "AstraDB-vx9HG": {},
+  "ParseData-gWeUZ": {
+  },
+  "Prompt-vyPwb": {
+  },
+  "OpenAIEmbeddings-5gVvC": {
+    "openai_api_key": OPENAI_API_KEY,
+  },
+  "OpenAIModel-8bp3U": {
+    "api_key": OPENAI_API_KEY,
+  },
+  "ChatOutput-kHUdh": {
+   }
+}
+
 
 # Function to run the Langflow chain
 def run_flow(input_text):
     return run_flow_from_json(
-        flow="Spotify Recommender 2.0.json",  # Update with your actual flow file
+        flow="Spotify Recommender.json",  # Update with your actual flow file
         input_value=input_text,
         fallback_to_env_vars=True,
-        tweaks=None
+        tweaks=TWEAKS
     )
 
 # Initialize session state for messages and model
@@ -25,7 +45,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Accept user input
-if prompt := st.chat_input("What is up?"):
+if prompt := st.chat_input("Ask for a music recommendation"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
