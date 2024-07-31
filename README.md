@@ -1,3 +1,9 @@
+## Description
+The Spotify RAG Music Recommendation System is a sophisticated application designed to provide personalized music recommendations to users. Built using LangFlow, the system leverages the power of LangChain for seamless interaction with large language models (LLMs) and the Spotify API for accessing a vast library of music.
+
+
+
+
 ## Setup
 
 1. **Clone the Repository**:
