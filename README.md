@@ -14,9 +14,12 @@ The Spotify RAG Music Recommendation System is a sophisticated application desig
    ```bash
    python -m venv venv
 
-4. **Install Requirements**:
+3. **Install Requirements**:
    ```bash
    pip install -r requirements.txt
+
+4. **Add API Keys**
+   Enter your OpenAI Key in the variable OPENAI_API_KEY at the top of app.py
 
 4. **Run Streamlit App**:
    ```bash
